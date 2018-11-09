@@ -16,9 +16,14 @@ namespace BallsTest
 
         [Range(5f, 50f)]
         [SerializeField] protected float ballMinSize, ballMaxSize;
-
-        ///<summary>Area where balls can flow</summary>
+        
+        ///<summary>Part of UI canvas where balls can flow</summary>
         protected RectTransform gameField;
+
+        // don't use it for MonoBehaviour
+        private BallsGenerator()
+        {
+        }
 
         // Use this for initialization
         protected void Start()
@@ -41,7 +46,7 @@ namespace BallsTest
                 // (0,0) is left lower corner of gameField
                 var ballPosition = new Vector2(Random.Range(0, gameField.rect.width - ballSize), -ballSize);
 
-                ball.Setup(ballSize, Random.ColorHSV(), ballPosition);
+                ball.Setup(this.gameField, ballSize, Random.ColorHSV(), ballPosition);
 
                 yield return new WaitForSeconds(ballsAppearanceDelay);
             }
