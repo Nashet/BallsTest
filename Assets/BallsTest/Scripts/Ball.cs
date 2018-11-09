@@ -11,7 +11,9 @@ namespace BallsTest
     /// </summary>
     public class Ball : MonoBehaviour, IPointerDownHandler
     {
-        [SerializeField] private float speed, size, speedModifier = 5f;
+        protected float size;
+
+        protected float Speed { get { return 1f / size * GameLogic.Instance.SpeedModifier; } }
 
         ///<summary>Area where balls can flow</summary>
         protected RectTransform gameField;
@@ -27,7 +29,6 @@ namespace BallsTest
         public void Setup(RectTransform gameField, float size, Color color, Vector2 position)
         {
             this.size = size;
-            speed = 1f / size * speedModifier;
 
             this.gameField = gameField;
 
@@ -48,7 +49,7 @@ namespace BallsTest
         {
             if (rectTransform.anchoredPosition.y > gameField.rect.height)
                 Destroy(this.gameObject);
-            rectTransform.anchoredPosition += Vector2.up * speed;
+            rectTransform.anchoredPosition += Vector2.up * Speed;
         }
 
         public void OnPointerDown(PointerEventData eventData)

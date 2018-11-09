@@ -14,7 +14,7 @@ namespace BallsTest
         [Range(0f, 10f)]
         [SerializeField] protected float ballsAppearanceDelay;
 
-        [Range(5f, 50f)]
+        [Range(10f, 150f)]
         [SerializeField] protected float ballMinSize, ballMaxSize;
         
         ///<summary>Part of UI canvas where balls can flow</summary>
