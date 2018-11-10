@@ -64,13 +64,13 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LighteningMultiplier: 0.001
+    - _LighteningMultiplier: 0.4
     - _LowerBound: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ScreenHeight: 239
+    - _ScreenHeight: 460
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -81,6 +81,7 @@ Material:
     - _StencilWriteMask: 255
     - _UVSec: 0
     - _UpperBound: 1
+    - _VerticalScaler: 130
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

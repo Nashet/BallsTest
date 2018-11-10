@@ -1336,8 +1336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballsAppearanceDelay: 1.57
-  ballMinSize: 27.3
-  ballMaxSize: 59
+  ballMinSize: 13
+  ballMaxSize: 30
   ballPrefab: {fileID: 1341768514343432, guid: 12281470158ca32479d0e597af214425, type: 2}
 --- !u!224 &1671673869
 RectTransform:
