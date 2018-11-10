@@ -9,6 +9,8 @@ namespace BallsTest
     /// <summary>
     /// Represents ball's behaviour
     /// </summary>
+    [RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(RectTransform))]
     public class Ball : MonoBehaviour, IPointerDownHandler
     {
         protected float size;
@@ -21,6 +23,8 @@ namespace BallsTest
         ///<summary>This object boundaries</summary>
         protected RectTransform rectTransform;
 
+        protected bool isSetupDone;
+
         // don't use it for MonoBehaviour
         private Ball()
         {
@@ -29,36 +33,44 @@ namespace BallsTest
         public void Setup(RectTransform gameField, float size, Color color, Vector2 position)
         {
             this.size = size;
-
             this.gameField = gameField;
 
-            var image = gameObject.AddComponent<Image>();
+            var image = gameObject.GetComponent<Image>();
             image.color = color;
 
             rectTransform = GetComponent<RectTransform>();
+
             rectTransform.pivot = Vector2.zero;
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.zero;
+
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size);
-
             rectTransform.anchoredPosition = position;
+
+            isSetupDone = true;
         }
 
         private void FixedUpdate()
         {
-            if (rectTransform.anchoredPosition.y > gameField.rect.height)
-                Destroy(this.gameObject);
-            rectTransform.anchoredPosition += Vector2.up * Speed;
+            if (isSetupDone)
+            {
+                if (rectTransform.anchoredPosition.y > gameField.rect.height)
+                    Destroy(this.gameObject);
+                rectTransform.anchoredPosition += Vector2.up * Speed;
+            }
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            Destroy(this.gameObject);
-            //todo add explosion animation?            
+            if (isSetupDone)
+            {
+                //May use some service locater instead of singleton
+                GameLogic.Instance.AddScores(size);
 
-            //May use some service locater instead of singleton
-            GameLogic.Instance.AddScores(size);
+                Destroy(this.gameObject);
+                //todo add explosion animation?       
+            }
         }
     }
 }
