@@ -16,7 +16,9 @@ namespace BallsTest
 
         [Range(10f, 150f)]
         [SerializeField] protected float ballMinSize, ballMaxSize;
-        
+
+        [SerializeField] protected GameObject ballPrefab;
+
         ///<summary>Part of UI canvas where balls can flow</summary>
         protected RectTransform gameField;
 
@@ -29,6 +31,7 @@ namespace BallsTest
         protected void Start()
         {
             gameField = GetComponent<RectTransform>();
+            Canvas.ForceUpdateCanvases(); // make sure that BallsGenerator recalculated its size
             StartCoroutine(GenerateBallsCoroutine());
         }
 
@@ -36,9 +39,7 @@ namespace BallsTest
         {
             while (true)
             {
-                var @object = new GameObject("Ball");
-                @object.transform.parent = this.transform;
-                var ball = @object.AddComponent<Ball>();
+                var ball = Instantiate(ballPrefab, this.transform).AddComponent<Ball>();
 
                 var ballSize = Random.Range(ballMinSize, ballMaxSize);
 
