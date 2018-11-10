@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BallsTest
-{  
+{
     internal class GameLogic : MonoBehaviour
     {
         public static GameLogic Instance { get; internal set; }
@@ -31,7 +31,7 @@ namespace BallsTest
         }
 
         // don't use it for MonoBehaviour
-        protected GameLogic()
+        private GameLogic()
         {
         }
 
@@ -49,7 +49,7 @@ namespace BallsTest
             PrepareNewRound();
         }
 
-        protected void PrepareNewRound()
+        public void PrepareNewRound()
         {
             roundStartedTime = Time.time;
             PlayerScores = 0;
@@ -62,13 +62,12 @@ namespace BallsTest
 
         protected void OnTimeLeft()
         {
-            //todo show modal window
-            //todo restart button?
+            ModalWindow.Show("Game is over\n You achieved " + PlayerScores + " Scores");            
         }
 
         protected void FixedUpdate()
         {
-            if (Time.time - roundStartedTime > roundDurationTime)
+            if (TimeLeft == 0f)
                 OnTimeLeft();
         }
     }
