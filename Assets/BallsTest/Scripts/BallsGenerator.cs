@@ -8,7 +8,7 @@ namespace BallsTest
     /// Generates balls with given properties
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
-    internal class BallsGenerator : MonoBehaviour
+    public class BallsGenerator : MonoBehaviour
     {
         [Tooltip("In seconds")]
         [Range(0f, 10f)]
@@ -17,7 +17,7 @@ namespace BallsTest
         [Range(10f, 150f)]
         [SerializeField] protected float ballMinSize, ballMaxSize;
 
-        [SerializeField] protected GameObject ballPrefab;
+        public GameObject ballPrefab;
 
         ///<summary>Part of UI canvas where balls can flow</summary>
         protected RectTransform gameField;
@@ -39,7 +39,7 @@ namespace BallsTest
         {
             while (true)
             {
-                var ball = Instantiate(ballPrefab, this.transform).AddComponent<Ball>();
+                var ball = Instantiate(ballPrefab, this.transform).GetComponent<Ball>();
 
                 var ballSize = Random.Range(ballMinSize, ballMaxSize);
 
