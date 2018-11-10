@@ -1,6 +1,5 @@
-﻿using System.Text;
+﻿
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace BallsTest
@@ -13,7 +12,12 @@ namespace BallsTest
         [SerializeField]
         protected Text generalText;
 
-        public static ModalWindow Instance { get; protected set; } 
+        public static ModalWindow Instance { get; protected set; }
+
+        // don't use it for MonoBehaviour
+        private ModalWindow()
+        {
+        }
 
         protected void Awake()
         {
@@ -33,9 +37,9 @@ namespace BallsTest
         /// </summary>    
         internal static void Show(string text)
         {
-            Instance.generalText.text = text;
-            Instance.Show();
+            Instance.generalText.text = text;            
             Instance.transform.SetAsLastSibling();
+            Instance.Show();
         }
     }
 }

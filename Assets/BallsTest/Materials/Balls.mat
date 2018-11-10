@@ -64,7 +64,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LighteningMultiplier: 0.4
+    - _LighteningMultiplier: 0.3
     - _LowerBound: 1
     - _Metallic: 0
     - _Mode: 0
@@ -81,7 +81,7 @@ Material:
     - _StencilWriteMask: 255
     - _UVSec: 0
     - _UpperBound: 1
-    - _VerticalScaler: 130
+    - _VerticalScaler: 117.91
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

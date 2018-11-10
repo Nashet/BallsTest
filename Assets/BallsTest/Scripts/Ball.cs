@@ -30,6 +30,9 @@ namespace BallsTest
         {
         }
 
+        /// <summary>
+        /// Initialize Ball. After that method ball will start living
+        /// </summary>        
         public void Setup(RectTransform gameField, float size, Color color, Vector2 position)
         {
             this.size = size;
@@ -55,6 +58,7 @@ namespace BallsTest
         {
             if (isSetupDone)
             {
+                // if get outside upper border of gameField
                 if (rectTransform.anchoredPosition.y > gameField.rect.height)
                     Destroy(this.gameObject);
                 rectTransform.anchoredPosition += Vector2.up * Speed;
@@ -64,8 +68,7 @@ namespace BallsTest
         public void OnPointerDown(PointerEventData eventData)
         {
             if (isSetupDone)
-            {
-                //May use some service locater instead of singleton
+            {                
                 GameLogic.Instance.AddScores(size);
 
                 Destroy(this.gameObject);

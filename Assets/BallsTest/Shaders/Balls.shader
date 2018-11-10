@@ -3,8 +3,8 @@
 	Properties
 	{
 		[PerRendererData]_MainTex("_MainTex", 2D) = "white" {}
-		_LighteningMultiplier("_LighteningMultiplier", Float) = 0.4
-		_VerticalScaler("_VerticalScaler", Float) = 130
+		_LighteningMultiplier("_LighteningMultiplier", Float) = 0.4 // just a linear multiplier
+		_VerticalScaler("_VerticalScaler", Float) = 130  //controls how fast color will change relatively to Y axis
 	}
 		SubShader
 		{

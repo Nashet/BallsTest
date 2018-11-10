@@ -19,9 +19,9 @@ namespace BallsTest
 
         public int PlayerScores { get; internal set; }
 
-        public float TimeFromRoundStart { get { return Time.time - roundStartedTime; } }
+        internal float TimeFromRoundStart { get { return Time.time - roundStartedTime; } }
 
-        public float TimeLeft
+        internal float TimeLeft
         {
             get
             {
