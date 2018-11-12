@@ -31,7 +31,7 @@ namespace BallsTest
         }
 
         // don't use it for MonoBehaviour
-        private GameLogic()
+        protected GameLogic()
         {
         }
 
