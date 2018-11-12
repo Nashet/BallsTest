@@ -11,7 +11,7 @@ namespace BallsTest
         [SerializeField] protected Text timeLeft, scores;
 
         // don't use it for MonoBehaviour
-        private InfoPanel()
+        protected InfoPanel()
         {
         }
 

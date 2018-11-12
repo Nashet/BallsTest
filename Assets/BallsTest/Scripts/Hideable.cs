@@ -10,6 +10,11 @@ namespace BallsTest
         //declare event of type delegate
         public event HideEventHandler Hidden;
 
+        // don't use it for MonoBehaviour
+        protected Hideable()
+        {
+        }
+
         public virtual void Hide()
         {
             gameObject.SetActive(false);

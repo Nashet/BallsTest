@@ -23,7 +23,7 @@ namespace BallsTest
         protected RectTransform gameField;
 
         // don't use it for MonoBehaviour
-        private BallsGenerator()
+        protected BallsGenerator()
         {
         }
 
