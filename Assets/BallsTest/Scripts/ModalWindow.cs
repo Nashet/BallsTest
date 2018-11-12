@@ -15,7 +15,7 @@ namespace BallsTest
         public static ModalWindow Instance { get; protected set; }
 
         // don't use it for MonoBehaviour
-        private ModalWindow()
+        protected ModalWindow()
         {
         }
 
@@ -41,5 +41,5 @@ namespace BallsTest
             Instance.transform.SetAsLastSibling();
             Instance.Show();
         }
-    }
+    }    
 }

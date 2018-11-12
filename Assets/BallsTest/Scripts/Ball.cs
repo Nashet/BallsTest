@@ -26,7 +26,7 @@ namespace BallsTest
         protected bool isSetupDone;
 
         // don't use it for MonoBehaviour
-        private Ball()
+        protected Ball()
         {
         }
 

@@ -12,6 +12,11 @@ public class BallsGeneratorEditor : Editor
     private GameObject previousValue;
     private bool firstCheck = true;
 
+    // don't use it for MonoBehaviour
+    protected BallsGeneratorEditor()
+    {
+    }
+
     private void OnSceneGUI()
     {
         var generator = target as BallsGenerator;
